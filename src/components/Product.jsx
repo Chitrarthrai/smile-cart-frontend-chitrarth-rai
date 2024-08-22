@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 
-import axios from "axios";
 import { Typography, Spinner } from "neetoui";
 import { append, isNotNil } from "ramda";
 
 import Carousel from "./Carousel";
+
+import productsApi from "../apis/products";
 
 const Product = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -12,9 +13,7 @@ const Product = () => {
 
   const fetchProduct = async () => {
     try {
-      const response = await axios.get(
-        "https://smile-cart-backend-staging.neetodeployapp.net/products/infinix-inbook-2"
-      );
+      const response = await productsApi.show();
       setProduct(response.data);
     } catch (error) {
       console.log("An error occurred:", error);
