@@ -40,6 +40,17 @@
     "title": "My cart",
     "empty": "Your cart is empty!"
   },
+  "validations": {
+    "emailRequired": "Email address is required",
+    "firstNameRequired": "First name is required",
+    "lastNameRequired": "Last name is required",
+    "addressRequired": "Address is required",
+    "apartmentRequired": "Apartment is required",
+    "cityRequired": "City is required",
+    "stateRequired": "State is required",
+    "zipCodeRequired": "Zip code is required",
+    "emailInvalid": "Email address is invalid"
+  },
   "pageNotFound": {
     "title": "The page you're looking for can't be found",
     "label": "Back to home"
