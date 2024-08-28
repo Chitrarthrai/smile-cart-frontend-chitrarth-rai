@@ -49,6 +49,23 @@ const Checkout = () => {
 
   const checkoutFormData = getFromLocalStorage(CHECKOUT_LOCAL_STORAGE_KEY);
 
+  const redirectToHome = () => {
+    timerRef.current = setTimeout(() => {
+      history.push(routes.root);
+      clearCart();
+    }, 1500);
+  };
+
+  const handleRedirect = () => {
+    if (timerRef.current) {
+      history.push(routes.root);
+      clearCart();
+      clearTimeout(timerRef.current);
+    } else {
+      history.goBack();
+    }
+  };
+
   const handleSubmit = values => {
     const dataToPersist = checkboxRef.current.checked ? values : null;
     setIsSubmitDisabled(true);
@@ -63,23 +80,6 @@ const Checkout = () => {
         onError: () => setIsSubmitDisabled(false),
       }
     );
-  };
-
-  const handleRedirect = () => {
-    if (timerRef.current) {
-      history.push(routes.root);
-      clearCart();
-      clearTimeout(timerRef.current);
-    } else {
-      history.goBack();
-    }
-  };
-
-  const redirectToHome = () => {
-    timerRef.current = setTimeout(() => {
-      history.push(routes.root);
-      clearCart();
-    }, 1500);
   };
 
   if (isLoading) return <PageLoader />;
