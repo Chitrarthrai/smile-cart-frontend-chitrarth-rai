@@ -69,7 +69,6 @@ const Checkout = () => {
   const handleSubmit = values => {
     const dataToPersist = checkboxRef.current.checked ? values : null;
     setIsSubmitDisabled(true);
-
     createOrder(
       { payload: values },
       {
